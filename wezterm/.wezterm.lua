@@ -74,6 +74,12 @@ config.keys = {
       mods = 'CTRL',
     },
   },
+  {
+    key = '%',
+    mods = 'CTRL|SHIFT|ALT',
+    action = wezterm.action.SplitVertical  { domain = 'CurrentPaneDomain' },
+  },
+   { key = 'w', mods = 'CTRL|SHIFT|ALT', action = wezterm.action.CloseCurrentPane { confirm = false }, },
 }
 
 return config
