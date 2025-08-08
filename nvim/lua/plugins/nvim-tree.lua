@@ -20,6 +20,10 @@ return {
       },
       filters = {
         dotfiles = false,
+        exclude = {
+          '/.zig-cache',
+          '/.cache',
+        }
       },
       git = {
         ignore = false
