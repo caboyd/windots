@@ -91,12 +91,33 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 function ClearBG()
- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
- -- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
- -- vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" })
+  vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+  -- vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+  -- vim.api.nvim_set_hl(0, "Pmenu", { bg = "none" })
+end
+
+if vim.g.neovide then
+  vim.o.guifont = "JetBrains Mono NL:h14"
+ 
+  vim.g.neovide_padding_bottom = 20
+  vim.g.neovide_padding_top = 20
+  vim.g.neovide_padding_left = 10
+  vim.g.neovide_padding_right = 10
+
+  vim.g.neovide_scale_factor = 1.0
+  local change_scale_factor = function(delta)
+    vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
+  end
+  vim.keymap.set("n", "<C-=>", function()
+    change_scale_factor(1.05)
+  end)
+  vim.keymap.set("n", "<C-->", function()
+    change_scale_factor(1 / 1.05)
+  end)
+else
+  ClearBG()
 end
 
 vim.cmd.colorscheme("vague")
 vim.cmd("NvimTreeOpen")
-ClearBG()
