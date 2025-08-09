@@ -25,11 +25,11 @@ config.cursor_blink_rate = 250
 
 
 config.colors = {
-	background = '#000000', 
-	--foreground = 'silver',
-	-- Add other color definitions as needed
+  background = '#000000',
+  --foreground = 'silver',
+  -- Add other color definitions as needed
 }
-		
+
 -- Tab Bar Configuration
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
@@ -38,7 +38,7 @@ config.show_tab_index_in_tab_bar = false
 
 config.default_prog = { 'powershell' }
 
-config.color_scheme =  "Catppuccin Mocha"
+config.color_scheme = "Catppuccin Mocha"
 
 local emoji_font = "Segoe UI Emoji"
 config.font = wezterm.font_with_fallback({
@@ -48,9 +48,9 @@ config.font = wezterm.font_with_fallback({
     --Disable ligatures, change zero to have line instead of dot
     harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0', 'zero' }
   },
-  { 
-    family = "Consolas", 
-    weight = "Bold", 
+  {
+    family = "Consolas",
+    weight = "Bold",
   },
   emoji_font
 })
@@ -66,7 +66,7 @@ config.window_padding = {
 
 -- Fix ctrl space not working
 config.keys = {
-  { 
+  {
     key = ' ',
     mods = 'CTRL',
     action = wezterm.action.SendKey {
@@ -77,9 +77,9 @@ config.keys = {
   {
     key = '%',
     mods = 'CTRL|SHIFT|ALT',
-    action = wezterm.action.SplitVertical  { domain = 'CurrentPaneDomain' },
+    action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
   },
-   { key = 'w', mods = 'CTRL|SHIFT|ALT', action = wezterm.action.CloseCurrentPane { confirm = false }, },
+  { key = 'w', mods = 'CTRL|SHIFT|ALT', action = wezterm.action.CloseCurrentPane { confirm = false }, },
 }
 
 return config
