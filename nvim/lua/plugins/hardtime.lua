@@ -1,10 +1,10 @@
 return {
   {
     "rcarriga/nvim-notify",
-    config = function () 
+    config = function()
       vim.notify = require("notify")
       require("notify").setup {
-         background_colour = "#000000",
+        background_colour = "#000000",
       }
     end,
   },
@@ -15,12 +15,13 @@ return {
     opts = {
       hint = true,
       notifaction = true,
+      timeout = 4000,
       disable_mouse = false,
       disabled_keys = {
-        ["<Up>"] = false,
-        ["<Down>"] = false,
-        ["<Left>"] = false,
-        ["<Right>"] = false,
+        ["<Up>"] = { "n" },
+        ["<Down>"] = { "n" },
+        ["<Left>"] = { "n" },
+        ["<Right>"] = { "n" },
       },
     },
   }

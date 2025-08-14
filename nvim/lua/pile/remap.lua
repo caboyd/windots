@@ -27,8 +27,20 @@ vim.keymap.set("v", "<Tab>", ">gv", opts)
 vim.keymap.set("i", "<S-Tab>", "<C-d>", opts)
 
 vim.keymap.set({ "n", "v", "x" }, "<leader>`", ":e #<CR>", { desc = "Open last buffer" })
+vim.keymap.set({ "n", "v", "x" }, "<leader>2", ":bprevious<CR>", { desc = "Open prev buffer" })
+vim.keymap.set({ "n", "v", "x" }, "<leader>1", ":bnext<CR>", { desc = "Open next buffer" })
 
 vim.keymap.set("n", "<leader>w", ":write<CR>", { desc = "Write file" })
 
 -- Scroll up with left hand only
 vim.keymap.set("n", "<C-e>", "<C-u>")
+
+-- Move selected lines up
+vim.keymap.set('v', '<C-Up>', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+vim.keymap.set('v', '<C-k>', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+-- Move selected lines down
+vim.keymap.set('v', '<C-Down>', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+vim.keymap.set('v', '<C-j>', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<ScrollWheelUp>', '6k', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<ScrollWheelDown>', '6j', { noremap = true, silent = true })

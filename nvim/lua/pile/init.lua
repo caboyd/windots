@@ -39,6 +39,10 @@ end)
 -- Save undo history
 vim.o.undofile = true
 
+-- disable adding comments when starting new line after comment
+vim.opt.formatoptions:remove({ "c", "r", "o" })
+
+
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -99,7 +103,7 @@ end
 
 if vim.g.neovide then
   vim.o.guifont = "JetBrains Mono NL:h14"
- 
+
   vim.g.neovide_padding_bottom = 20
   vim.g.neovide_padding_top = 20
   vim.g.neovide_padding_left = 10

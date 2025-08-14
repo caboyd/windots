@@ -19,15 +19,30 @@ return {
         group_empty = true,
       },
       filters = {
+        enable = true,
         dotfiles = false,
-        exclude = {
-          '/.zig-cache',
-          '/.cache',
+        custom = {
+          '.zig-cache',
+          '^\\.cache$',
+          'zig-out',
+          '^\\.git$',
         }
       },
       git = {
         ignore = false
-      }
+      },
+      filesystem_watchers = {
+        enable = true,
+        debounce_delay = 50,
+        ignore_dirs = {
+          ".ccls-cache",
+          "build",
+          "node_modules",
+          "target",
+          ".zig-cache",
+        },
+      },
+
     }
   end,
 }
