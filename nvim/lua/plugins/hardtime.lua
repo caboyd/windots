@@ -1,6 +1,7 @@
 return {
   {
     "rcarriga/nvim-notify",
+    dependencies = { 'tris203/precognition.nvim' },
     config = function()
       vim.notify = require("notify")
       require("notify").setup {
@@ -23,6 +24,9 @@ return {
         ["<Left>"] = { "n" },
         ["<Right>"] = { "n" },
       },
+      callback = function(config, text)
+        require('precognition').peek()
+      end,
     },
   }
 }
